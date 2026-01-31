@@ -6,4 +6,4 @@ Lakshya Sharma
 24BCY70006
 
 #DESCRIPTION 
-This project is a drawing board using js,html,css in single code 
+This project is a drawing board using html.
