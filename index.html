@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple Drawing</title>
+
+<style>
+body{
+    text-align:center;
+    font-family: Arial;
+}
+
+svg{
+    border:2px solid black;
+    background:white;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Drawing Board</h2>
+
+<svg id="board" width="400" height="300"></svg>
+
+<script>
+
+var board = document.getElementById("board");
+var drawing = false;
+
+board.onmousedown = function(){
+    drawing = true;
+}
+
+board.onmouseup = function(){
+    drawing = false;
+}
+
+board.onmouseleave = function(){
+    drawing = false;
+}
+
+board.onmousemove = function(e){
+
+    if(drawing){
+
+        var rect = board.getBoundingClientRect();
+
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+
+        var dot = document.createElementNS("http://www.w3.org/2000/svg","circle");
+
+        dot.setAttribute("cx", x);
+        dot.setAttribute("cy", y);
+        dot.setAttribute("r", 3);
+        dot.setAttribute("fill", "black");
+
+        board.appendChild(dot);
+    }
+
+}
+
+</script>
+
+</body>
+</html>
